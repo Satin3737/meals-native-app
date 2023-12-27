@@ -7,8 +7,8 @@ const CategoryScreen = () => {
     return (
         <FlatList
             data={CATEGORIES}
-            keyExtractor={(item) => item.id}
-            renderItem={(item) => <CategoryItem data={item.item} />}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => <CategoryItem data={item} />}
             numColumns={2}
             columnWrapperStyle={styles.gap}
         />

@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#282828'
     },
     appSaveView: {
-        flex: 1,
-        paddingHorizontal: 16,
-        paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight + 24 : 24
+        flex: 1
+        // paddingHorizontal: 16,
+        // paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight + 24 : 24
     }
 });
 
