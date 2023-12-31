@@ -13,7 +13,20 @@ const MealsScreen = () => {
             <FlatList
                 data={meals}
                 keyExtractor={item => item.id}
-                renderItem={({item}) => <MealItem data={item} />}
+                ItemSeparatorComponent={() => <View style={styles.gap}></View>}
+                renderItem={({item}) => {
+                    const {title, imageUrl, duration, complexity, affordability} = item;
+
+                    const mealProps = {
+                        title,
+                        imageUrl,
+                        duration,
+                        complexity,
+                        affordability
+                    };
+
+                    return <MealItem {...mealProps} />;
+                }}
             />
         </View>
     );
