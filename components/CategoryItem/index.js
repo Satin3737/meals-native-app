@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 const CategoryItem = ({data}) => {
     const {id, title, color} = data;
     const navigation = useNavigation();
+
     const onPress = () => {
         navigation.navigate('meals', {
             catId: id

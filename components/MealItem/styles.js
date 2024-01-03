@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
             ios: {overflow: 'visible'}
         })
     },
+    info: {
+        paddingHorizontal: 8,
+        paddingTop: 4,
+        paddingBottom: 16
+    },
     inner: {
         borderRadius: 16,
         overflow: 'hidden'
@@ -27,18 +32,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         margin: 8,
         textAlign: 'center'
-    },
-    info: {
-        paddingHorizontal: 8,
-        paddingTop: 4,
-        paddingBottom: 16,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 16
-    },
-    infoItem: {
-        fontSize: 12
     },
     image: {
         flex: 1,

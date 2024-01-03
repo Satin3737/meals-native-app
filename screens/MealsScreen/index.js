@@ -15,9 +15,10 @@ const MealsScreen = () => {
                 keyExtractor={item => item.id}
                 ItemSeparatorComponent={() => <View style={styles.gap}></View>}
                 renderItem={({item}) => {
-                    const {title, imageUrl, duration, complexity, affordability} = item;
+                    const {id, title, imageUrl, duration, complexity, affordability} = item;
 
                     const mealProps = {
+                        id,
                         title,
                         imageUrl,
                         duration,

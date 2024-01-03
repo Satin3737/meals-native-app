@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MealsScreen from './screens/MealsScreen';
 import {useMemo} from 'react';
+import MealScreen from './screens/MealScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,15 +26,17 @@ const App = () => {
                         <Stack.Screen
                             name={'categories'}
                             component={CategoryScreen}
-                            options={{
-                                title: 'Categories',
-                                ...screenOption
-                            }}
+                            options={{title: 'Food', ...screenOption}}
                         />
                         <Stack.Screen
                             name={'meals'}
                             component={MealsScreen}
                             options={{title: 'Meals', ...screenOption}}
+                        />
+                        <Stack.Screen
+                            name={'meal'}
+                            component={MealScreen}
+                            options={{title: 'Meal', ...screenOption}}
                         />
                     </Stack.Navigator>
                 </SafeAreaView>
