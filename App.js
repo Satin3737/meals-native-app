@@ -7,7 +7,8 @@ import {useMemo} from 'react';
 import MealScreen from './screens/MealScreen';
 import Stack from './navigation/StackNavigator';
 import DrawerNavigator from './navigation/DrawerNavigator';
-import {FavoritesContextProvider} from './store/favorites-context';
+import {Provider} from 'react-redux';
+import store from './store/redux/store';
 
 const App = () => {
     const screenOption = useMemo(() => ({
@@ -17,7 +18,7 @@ const App = () => {
     }));
 
     return (
-        <FavoritesContextProvider>
+        <Provider store={store}>
             <NavigationContainer>
                 <View style={styles.app}>
                     <StatusBar style="light" />
@@ -42,7 +43,7 @@ const App = () => {
                     </SafeAreaView>
                 </View>
             </NavigationContainer>
-        </FavoritesContextProvider>
+        </Provider>
     );
 };
 
