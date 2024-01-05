@@ -1,14 +1,12 @@
 import {StatusBar} from 'expo-status-bar';
 import {SafeAreaView, View} from 'react-native';
 import styles from './appStyles';
-import CategoryScreen from './screens/CategoryScreen';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MealsScreen from './screens/MealsScreen';
 import {useMemo} from 'react';
 import MealScreen from './screens/MealScreen';
-
-const Stack = createNativeStackNavigator();
+import Stack from './navigation/StackNavigator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
 const App = () => {
     const screenOption = useMemo(() => ({
@@ -24,9 +22,9 @@ const App = () => {
                 <SafeAreaView style={styles.appSaveView}>
                     <Stack.Navigator>
                         <Stack.Screen
-                            name={'categories'}
-                            component={CategoryScreen}
-                            options={{title: 'Food', ...screenOption}}
+                            name={'drawerNavigator'}
+                            component={DrawerNavigator}
+                            options={{headerShown: false}}
                         />
                         <Stack.Screen
                             name={'meals'}
