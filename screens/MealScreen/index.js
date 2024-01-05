@@ -1,30 +1,33 @@
 import {View, Text, Image, ScrollView} from 'react-native';
 import styles from './styles';
 import {useRoute} from '@react-navigation/native';
-import {useLayoutEffect} from 'react';
+import {useContext, useLayoutEffect} from 'react';
 import {MEALS} from '../../data/dummy-data';
 import MealInfo from '../../components/MealInfo';
 import MealList, {listTypes} from '../../components/MealList';
 import IconButton from '../../components/IconButton';
+import {FavoritesContext} from '../../store/favorites-context';
 
 const MealScreen = ({navigation}) => {
+    const {ids, addFavorite, removeFavorite} = useContext(FavoritesContext);
     const {params} = useRoute();
     const mealId = params?.id;
     const mealData = MEALS.find(meal => meal.id === mealId);
     const {bullets, numbers} = listTypes;
     const {title, imageUrl, duration, complexity, affordability, ingredients, steps} = mealData;
     const mealInfo = {duration, complexity, affordability};
+    const isFavorite = ids.includes(mealId);
 
-    const addToWishHandler = () => {
-        console.log('Pressed');
-    };
+    const changeFavoriteState = () => (isFavorite ? removeFavorite(mealId) : addFavorite(mealId));
 
     useLayoutEffect(() => {
         navigation.setOptions({
             title,
-            headerRight: () => <IconButton onPress={addToWishHandler} />
+            headerRight: () => (
+                <IconButton icon={isFavorite ? 'star' : 'star-outline'} onPress={changeFavoriteState} />
+            )
         });
-    }, [navigation, addToWishHandler]);
+    }, [navigation, changeFavoriteState]);
 
     return (
         <ScrollView style={styles.screen}>

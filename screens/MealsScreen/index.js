@@ -1,8 +1,8 @@
-import {FlatList, View} from 'react-native';
+import {View} from 'react-native';
 import styles from './styles';
 import {useRoute} from '@react-navigation/native';
 import {MEALS} from '../../data/dummy-data';
-import MealItem from '../../components/MealItem';
+import MealsList from '../../components/MealsList';
 
 const MealsScreen = () => {
     const {params} = useRoute();
@@ -10,25 +10,7 @@ const MealsScreen = () => {
 
     return (
         <View style={styles.screen}>
-            <FlatList
-                data={meals}
-                keyExtractor={item => item.id}
-                ItemSeparatorComponent={() => <View style={styles.gap}></View>}
-                renderItem={({item}) => {
-                    const {id, title, imageUrl, duration, complexity, affordability} = item;
-
-                    const mealProps = {
-                        id,
-                        title,
-                        imageUrl,
-                        duration,
-                        complexity,
-                        affordability
-                    };
-
-                    return <MealItem {...mealProps} />;
-                }}
-            />
+            <MealsList data={meals} />
         </View>
     );
 };

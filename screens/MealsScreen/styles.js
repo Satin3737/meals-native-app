@@ -4,9 +4,6 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         paddingVertical: 16
-    },
-    gap: {
-        height: 16
     }
 });
 
